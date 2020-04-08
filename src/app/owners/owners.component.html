@@ -1,0 +1,44 @@
+<H3>Owners</H3>
+
+<div *ngFor="let o of owners">
+  <div>
+    {{ o.OwnerName }}
+    {{ o.TeamName }}
+    {{ o.OwnerActiveSince }}
+    {{ o.OwnerActiveStatus }}
+    {{ o.TeamActiveSince }}
+    {{ o.TeamActiveStatus }}
+    <button class="button" type="submit" (click)="snackbar()">
+      Delete owner
+    </button>
+  </div>
+</div>
+<div id="snackbar">Some text some message..</div>
+<div></div>
+
+<div>
+  <form (click)="snackbar()">
+    <div class="ex2">
+      <label for="name">
+        Name
+      </label>
+      <input id="ownerName" type="text" />
+    </div>
+
+    <div class="ex2">
+      <label for="activeSince">
+        Active Since
+      </label>
+      <input id="activeSince" type="text" />
+    </div>
+
+    <input type="radio" name="activeStatus" value="true" />
+    Active
+    <input type="radio" name="activeStatus" value="false" />
+    Inactive
+
+    <div class="ex2">
+      <button class="button" type="submit">Add owner</button>
+    </div>
+  </form>
+</div>
