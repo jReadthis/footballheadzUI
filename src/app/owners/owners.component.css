@@ -67,3 +67,67 @@
     opacity: 0;
   }
 }
+.label {
+  text-align: center;
+}
+.card-div {
+  padding: 25px;
+}
+
+.card {
+  max-width: 300px;
+  padding: 25px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.example-header-image {
+  background-image: url('../../assets/img/Fantasy.jpg');
+  background-size: cover;
+}
+.div-form {
+  width: 100%;
+  padding-left: 25px;
+  padding-bottom: 25px;
+  text-align: center;
+}
+
+.form {
+  display: inline-block;
+  text-align: left;
+  width: 320px;
+}
+
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-container .mat-form-field {
+  width: 220px;
+}
+
+.example-container form {
+  margin-bottom: 20px;
+}
+
+.example-container form > * {
+  margin: 5px 0;
+}
+
+.example-container .mat-radio-button {
+  margin: 0 12px;
+}
+
+.tp-margin {
+  margin: 0 10px;
+}
+.tp-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+.owner-button-row button,
+.owner-button-row a {
+  margin-right: 10px;
+}

@@ -1,72 +1,63 @@
-import { TestBed, getTestBed } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 import { OwnerService } from './owner.service';
 import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import { HttpRequest } from '@angular/common/http';
-import { Owner } from './owners/owner';
+
+let service: any;
+let httpMock: any;
 
 describe('OwnerService', () => {
-  let injector: TestBed;
-  let ownerService: OwnerService;
-  let httpMock: HttpTestingController;
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [OwnerService],
     });
-    injector = getTestBed();
-    ownerService = injector.get(OwnerService);
-    httpMock = injector.get(HttpTestingController);
   });
 
-  afterEach(() => {
-    httpMock.verify();
-  });
+  afterEach(inject([HttpTestingController], (http: HttpTestingController) => {
+    http.verify();
+  }));
+
+  beforeEach(inject(
+    [HttpTestingController, OwnerService],
+    (http: HttpTestingController, ownerService: OwnerService) => {
+      httpMock = http;
+      service = ownerService;
+    }
+  ));
 
   it('should be created', () => {
-    const service: OwnerService = ownerService;
     expect(service).toBeTruthy();
   });
 
-  describe('getOwners', () => {
-    let dummyOwners: any;
-    beforeEach(() => {
-      dummyOwners = {
-        body: [{ ownerName: 'ownerName' }, { ownerName: 'teamName' }],
-      };
+  it('Get Owneres should contain 2 users', () => {
+    service.getOwners().subscribe((data) => {
+      expect(data.body.length).toEqual(2);
+      expect(data.body[0].OwnerName).toEqual('Jeff Marca');
     });
-    it('should return 2 owners and have ownerName', (done) => {
-      const data = dummyOwners;
-      ownerService.getOwners().subscribe((data) => {
-        expect(data.body.length).toBe(2);
-        expect(data.body).toEqual(dummyOwners);
-        done();
-      });
-      const URL = `${ownerService.BASE_URL}`;
-      const httpRequest = httpMock.expectOne(URL);
-      expect(httpRequest.request.method).toBe('GET');
-      httpRequest.flush(data);
-    });
-  });
 
-  describe('getOwner', () => {
-    let dummyOwner: any;
-    beforeEach(() => {
-      dummyOwner = [{ ownerName: 'dummy' }];
-    });
-    it('should return 1 owner and have dummyName', (done) => {
-      const data = dummyOwner;
-      ownerService.getOwner('dummy').subscribe((data) => {
-        expect(data.length).toBe(1);
-        expect(data).toEqual(dummyOwner);
-        done();
-      });
-      const URL = `${ownerService.BASE_URL}`;
-      const httpRequest = httpMock.expectOne(URL + '/dummy');
-      expect(httpRequest.request.method).toBe('GET');
-      httpRequest.flush(data);
-    });
+    const req = httpMock.expectOne(service.BASE_URL);
+    expect(req.request.method).toEqual('GET');
+    req.flush([
+      {
+        TeamActiveStatus: 'true',
+        OwnerActiveSince: '2012-09-01',
+        OwnerName: 'Jeff Marca',
+        TeamActiveSince: '2012-09-01',
+        Type: 'Owner',
+        OwnerActiveStatus: 'true',
+        TeamName: 'TheHogPit',
+      },
+      {
+        TeamActiveStatus: 'true',
+        OwnerActiveSince: '2012-11-02',
+        OwnerName: 'Matthew',
+        TeamActiveSince: '2012-11-02',
+        Type: 'Owner',
+        OwnerActiveStatus: 'false',
+        TeamName: 'DBoysofAmerica1',
+      },
+    ]);
   });
 });

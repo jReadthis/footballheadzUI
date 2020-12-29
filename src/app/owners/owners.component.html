@@ -1,44 +1,100 @@
-<H3>Owners</H3>
+<h2 class="label">Current Owners</h2>
 
-<div *ngFor="let o of owners">
-  <div>
-    {{ o.OwnerName }}
-    {{ o.TeamName }}
-    {{ o.OwnerActiveSince }}
-    {{ o.OwnerActiveStatus }}
-    {{ o.TeamActiveSince }}
-    {{ o.TeamActiveStatus }}
-    <button class="button" type="submit" (click)="snackbar()">
-      Delete owner
-    </button>
-  </div>
+<div class="card-div">
+  <mat-card class="card" *ngFor="let o of owners">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ o.OwnerName }}</mat-card-title>
+      <mat-card-subtitle>{{ o.TeamName }}</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="../../assets/img/Fantasy-Football-Logo.jpg"
+      alt="Photo of Owner"
+    />
+    <mat-card-content>
+      <div>
+        <div>Owner Active Since: {{ o.OwnerActiveSince }}</div>
+        <div>Owner Active Status: {{ o.OwnerActiveStatus }}</div>
+        <div>Team Active Since: {{ o.TeamActiveSince }}</div>
+        <div>Team Active Status: {{ o.TeamActiveStatus }}</div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button type="submit" (click)="snackbar()">DELETE</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
-<div id="snackbar">Some text some message..</div>
-<div></div>
-
-<div>
-  <form (click)="snackbar()">
-    <div class="ex2">
-      <label for="name">
-        Name
-      </label>
-      <input id="ownerName" type="text" />
-    </div>
-
-    <div class="ex2">
-      <label for="activeSince">
-        Active Since
-      </label>
-      <input id="activeSince" type="text" />
-    </div>
-
-    <input type="radio" name="activeStatus" value="true" />
-    Active
-    <input type="radio" name="activeStatus" value="false" />
-    Inactive
-
-    <div class="ex2">
-      <button class="button" type="submit">Add owner</button>
-    </div>
-  </form>
+<div id="snackbar">Owner Deleted</div>
+<div class="div-form">
+  <mat-card class="form">
+    <mat-card-header>
+      <mat-card-title class="label">
+        Add New Owner
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="ownerGroup" (ngSubmit)="onSubmit()">
+        <div>
+          <mat-form-field appearance="standard">
+            <input
+              matInput
+              formControlName="ownerName"
+              placeholder="Owner Name"
+            />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="standard">
+            <input
+              matInput
+              formControlName="teamName"
+              placeholder="Team Name"
+            />
+          </mat-form-field>
+        </div>
+        <div class="tp-section">
+          <mat-checkbox class="tp-margin" formControlName="ownerActive"
+            >Owner Active</mat-checkbox
+          >
+          <mat-checkbox class="tp-margin" formControlName="teamActive"
+            >Team Active</mat-checkbox
+          >
+        </div>
+        <div>
+          <mat-form-field>
+            <input
+              matInput
+              [matDatepicker]="ownerpicker"
+              placeholder="Owner Start Date"
+              formControlName="ownerActiveDate"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="ownerpicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #ownerpicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input
+              matInput
+              [matDatepicker]="teampicker"
+              placeholder="Team Start Date"
+              formControlName="teamActiveDate"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="teampicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #teampicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="owner-button-row">
+          <button mat-button type="submit">Add</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>
