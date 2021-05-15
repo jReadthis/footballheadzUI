@@ -1,0 +1,138 @@
+<mat-tab-group #tabGroup>
+    <mat-tab label="Head To Head">
+        <!-- Add Season -->
+        <div class="example-container mat-elevation-z8">
+            <mat-card class="form" class="example-container mat-elevation-z8">
+                <mat-card-header>
+                    <mat-card-title class="label">
+                        Enter Team Names
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form [formGroup]="head2headGroup" (ngSubmit)="onSubmitHead2Head()">
+
+                        <div>
+                            <mat-form-field appearance="standard">
+                                <input matInput formControlName="team1" placeholder="Team1" />
+                            </mat-form-field>
+                            <mat-form-field appearance="standard">
+                                <input matInput formControlName="team2" placeholder="Team2" />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="manager-button-row">
+                            <button mat-button type="submit">Submit</button>
+                        </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card class="mat-card-record" *ngIf="headtohead">
+                <mat-card-header>
+                    <mat-card-title class="label">
+                        Record
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div>{{ headtohead.record }}</div>
+                </mat-card-content>
+                <mat-card-content>
+                    <div class="example-container mat-elevation-z8">
+
+                        <!-- Game Table-->
+                        <table mat-table [dataSource]="dataSource" matSort matSortActive="year" matSortDirection="asc">
+                    
+                          <!-- Year Column -->
+                          <ng-container matColumnDef="year">
+                            <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
+                            <mat-cell *matCellDef="let game"> {{game.year}} </mat-cell>
+                          </ng-container>
+                    
+                          <!-- Week Column -->
+                          <ng-container matColumnDef="week">
+                            <mat-header-cell *matHeaderCellDef> Week </mat-header-cell>
+                            <mat-cell *matCellDef="let game"> {{game.week}} </mat-cell>
+                          </ng-container>
+                    
+                          <!-- Home Team Column -->
+                          <ng-container matColumnDef="homeTeam">
+                            <mat-header-cell *matHeaderCellDef> Home Team </mat-header-cell>
+                            <mat-cell *matCellDef="let game"> {{game.homeTeam}} </mat-cell>
+                          </ng-container>
+                    
+                          <!-- Away Team Column -->
+                          <ng-container matColumnDef="awayTeam">
+                            <mat-header-cell *matHeaderCellDef> Away Team </mat-header-cell>
+                            <mat-cell *matCellDef="let game"> {{game.awayTeam}} </mat-cell>
+                          </ng-container>
+                    
+                          <!-- Home Team Pts Column -->
+                          <ng-container matColumnDef="homeTeamPts">
+                            <mat-header-cell *matHeaderCellDef> Home Team Pts </mat-header-cell>
+                            <mat-cell *matCellDef="let game"> {{game.homeTeamPts}} </mat-cell>
+                          </ng-container>
+                    
+                          <!-- Away Team Pts Column -->
+                          <ng-container matColumnDef="awayTeamPts">
+                            <mat-header-cell *matHeaderCellDef> Away Team Pts </mat-header-cell>
+                            <mat-cell *matCellDef="let game"> {{game.awayTeamPts}} </mat-cell>
+                          </ng-container>
+                    
+                          <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+                          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                        </table>
+                        </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Add Game">
+        <!-- Add Season -->
+        <div class="example-container mat-elevation-z8">
+            <mat-card class="form" class="example-container mat-elevation-z8">
+                <mat-card-header>
+                    <mat-card-title class="label">
+                        Add New Game
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form [formGroup]="gameGroup" (ngSubmit)="onSubmit()">
+
+                        <div>
+                            <mat-form-field appearance="standard">
+                                <input matInput formControlName="year" placeholder="Year" />
+                            </mat-form-field>
+                            <mat-form-field appearance="standard">
+                                <input matInput formControlName="week" placeholder="Week" />
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <mat-form-field appearance="standard">
+                                <input matInput formControlName="homeTeam" placeholder="Home Team" />
+                            </mat-form-field>
+                            <mat-form-field appearance="standard">
+                                <input matInput formControlName="awayTeam" placeholder="Away Team" />
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <mat-form-field appearance="standard">
+                                <input matInput formControlName="homeTeamPts" placeholder="Home Team Pts" />
+                            </mat-form-field>
+                            <mat-form-field appearance="standard">
+                                <input matInput formControlName="awayTeamPts" placeholder="Away Team Pts" />
+                            </mat-form-field>
+                        </div>
+
+
+                        <div class="manager-button-row">
+                            <button mat-button type="submit">Add</button>
+                        </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,92 @@
+[
+    {
+        "id": "72d24601-05be-4c17-8d08-f452f362e11a",
+        "year": "2020",
+        "week": "15",
+        "homeTeam": "GimmyDaLoot",
+        "awayTeam": "TheHogPit",
+        "homeTeamPts": 98.34,
+        "awayTeamPts": 99.99
+    },
+    {
+        "id": "31c761a1-4432-4793-a23b-05d397761840",
+        "year": "2017",
+        "week": "10",
+        "homeTeam": "Team1",
+        "awayTeam": "Team2",
+        "homeTeamPts": 98.34,
+        "awayTeamPts": 99.99
+    },
+    {
+        "id": "57e7d257-61fd-4956-80b4-c646c57a3105",
+        "year": "2011",
+        "week": "1",
+        "homeTeam": "TheHogPit",
+        "awayTeam": "GimmyDaLoot",
+        "homeTeamPts": 98.34,
+        "awayTeamPts": 99.99
+    },
+    {
+        "id": "6e5d6dd7-8cf3-4895-9e77-0f0db83a50c7",
+        "year": "2011",
+        "week": "1",
+        "homeTeam": "TheHogPit",
+        "awayTeam": "GimmyDaLoot",
+        "homeTeamPts": 98.34,
+        "awayTeamPts": 99.99
+    },
+    {
+        "id": "b1a4eba4-19ca-44ee-9692-2d162611b722",
+        "year": "2018",
+        "week": "13",
+        "homeTeam": "Team1",
+        "awayTeam": "TheHogPit",
+        "homeTeamPts": 98.34,
+        "awayTeamPts": 99.99
+    },
+    {
+        "id": "124f1f58-65ce-4a7c-995e-58a9c71ad10d",
+        "year": "2011",
+        "week": "1",
+        "homeTeam": "TheHogPit",
+        "awayTeam": "GimmyDaLoot",
+        "homeTeamPts": 98.34,
+        "awayTeamPts": 99.99
+    },
+    {
+        "id": "5d64c949-a7f1-4e68-b4a2-4064dea1eac9",
+        "year": "2011",
+        "week": "1",
+        "homeTeam": "TheHogPit",
+        "awayTeam": "GimmyDaLoot",
+        "homeTeamPts": 98.34,
+        "awayTeamPts": 99.99
+    },
+    {
+        "id": "7df08ca1-3d65-465d-9e36-ee894548c26f",
+        "year": "2017",
+        "week": "15",
+        "homeTeam": "Team4",
+        "awayTeam": "Team6",
+        "homeTeamPts": 98.34,
+        "awayTeamPts": 99.99
+    },
+    {
+        "id": "dd408d1f-b32f-4ee4-8add-7b2b814863cd",
+        "year": "2011",
+        "week": "1",
+        "homeTeam": "TheHogPit",
+        "awayTeam": "GimmyDaLoot",
+        "homeTeamPts": 98.34,
+        "awayTeamPts": 99.99
+    },
+    {
+        "id": "138eae51-4367-48b3-8945-389736c4b232",
+        "year": "2020",
+        "week": "15",
+        "homeTeam": "GimmyDaLoot",
+        "awayTeam": "Team2",
+        "homeTeamPts": 98.34,
+        "awayTeamPts": 99.99
+    }
+]

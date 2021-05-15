@@ -1,0 +1,29 @@
+[
+    {
+        "managerName": "Manager1",
+        "teams": [
+            "Team1"
+        ],
+        "activeStatus": true,
+        "activeDate": "2011-09-01T00:00:00.000+00:00"
+    },
+    {
+        "managerName": "Manager2",
+        "teams": [
+            "Team1",
+            "Team2"
+        ],
+        "activeStatus": true,
+        "activeDate": "2011-09-01T00:00:00.000+00:00"
+    },
+    {
+        "managerName": "Manager3",
+        "teams": [
+            "Team1",
+            "Team2",
+            "Team3"
+        ],
+        "activeStatus": false,
+        "activeDate": "2011-09-01T00:00:00.000+00:00"
+    }
+]

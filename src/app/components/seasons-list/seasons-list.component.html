@@ -1,0 +1,201 @@
+<mat-form-field appearance="fill">
+  <mat-label>Season Year</mat-label>
+  <mat-select [(ngModel)]="selectedYear" (selectionChange)="selectYear()">
+    <mat-option *ngFor="let year of years" [value]="year">
+      {{year}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-tab-group #tabGroup>
+  <mat-tab label="PlayOffs">
+    <div class="example-container mat-elevation-z8">
+
+      <!-- Playoff Table-->
+      <table mat-table [dataSource]="playoffDataSource" matSort matSortActive="playoffRank" matSortDirection="asc">
+
+        <!-- Rank Column -->
+        <ng-container matColumnDef="playoffRank">
+          <mat-header-cell *matHeaderCellDef> PlayOff Rank </mat-header-cell>
+          <mat-cell *matCellDef="let season"> {{season.playoffRank}} </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="teamName">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let season"> {{season.teamName}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns2; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns2;"></mat-row>
+      </table>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Regular Season">
+    <div class="example-container mat-elevation-z8">
+
+    <!-- Reg Season Table-->
+    <table mat-table [dataSource]="dataSource" matSort matSortActive="rank" matSortDirection="asc">
+
+      <!-- Rank Column -->
+      <ng-container matColumnDef="rank">
+        <mat-header-cell *matHeaderCellDef> Rank </mat-header-cell>
+        <mat-cell *matCellDef="let season"> {{season.rank}} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="teamName">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let season"> {{season.teamName}} </mat-cell>
+      </ng-container>
+
+      <!-- Win Loss Column -->
+      <ng-container matColumnDef="record">
+        <mat-header-cell *matHeaderCellDef> W-L-T </mat-header-cell>
+        <mat-cell *matCellDef="let season"> {{season.record}} </mat-cell>
+      </ng-container>
+
+      <!-- Percent Column -->
+      <ng-container matColumnDef="pct">
+        <mat-header-cell *matHeaderCellDef> Pct </mat-header-cell>
+        <mat-cell *matCellDef="let season"> {{season.pct}} </mat-cell>
+      </ng-container>
+
+      <!-- Streak Column -->
+      <ng-container matColumnDef="streak">
+        <mat-header-cell *matHeaderCellDef> Stk </mat-header-cell>
+        <mat-cell *matCellDef="let season"> {{season.streak}} </mat-cell>
+      </ng-container>
+
+      <!-- Points For Column -->
+      <ng-container matColumnDef="pointsFor">
+        <mat-header-cell *matHeaderCellDef> For </mat-header-cell>
+        <mat-cell *matCellDef="let season"> {{season.pointsFor}} </mat-cell>
+      </ng-container>
+
+      <!-- Points Against Column -->
+      <ng-container matColumnDef="pointsAgainst">
+        <mat-header-cell *matHeaderCellDef> Against </mat-header-cell>
+        <mat-cell *matCellDef="let season"> {{season.pointsAgainst}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </table>
+
+    </div>
+  </mat-tab>
+
+  <!-- Add Season -->
+  <mat-tab label="Add Season">
+    <div class="example-container mat-elevation-z8">
+      <div class="div-form">
+        <mat-card class="form">
+          <mat-card-header>
+            <mat-card-title class="label">
+              Add New Season
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <form [formGroup]="seasonGroup" (ngSubmit)="onSubmit()">
+
+              <div>
+                <mat-form-field appearance="standard">
+                  <input
+                    matInput
+                    formControlName="id"
+                    placeholder="Id"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div>
+                <mat-form-field appearance="standard">
+                  <input
+                    matInput
+                    formControlName="year"
+                    placeholder="Year"
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="standard">
+                  <input
+                    matInput
+                    formControlName="teamName"
+                    placeholder="Team Name"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div>
+                <mat-form-field appearance="standard">
+                  <input
+                    matInput
+                    formControlName="rank"
+                    placeholder="Rank"
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="standard">
+                  <input
+                    matInput
+                    formControlName="playoffRank"
+                    placeholder="Playoff Rank"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div>
+                <mat-form-field appearance="standard">
+                  <input
+                    matInput
+                    formControlName="record"
+                    placeholder="Record"
+                  />
+                </mat-form-field>
+                  <mat-form-field appearance="standard">
+                    <input
+                      matInput
+                      formControlName="pct"
+                      placeholder="Winning Percentage"
+                    />
+                  </mat-form-field>
+              </div>
+
+              <div>
+                <mat-form-field appearance="standard">
+                  <input
+                    matInput
+                    formControlName="streak"
+                    placeholder="Winning Streak"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div>
+                <mat-form-field appearance="standard">
+                  <input
+                    matInput
+                    formControlName="pointsFor"
+                    placeholder="Points For"
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="standard">
+                  <input
+                    matInput
+                    formControlName="pointsAgainst"
+                    placeholder="Points Against"
+                  />
+                </mat-form-field>
+              </div>
+              
+              
+              <div class="manager-button-row">
+                <button mat-button type="submit">Add</button>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

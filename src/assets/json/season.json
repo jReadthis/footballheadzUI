@@ -1,0 +1,36 @@
+[
+    {
+        "id": "2021|Team4",
+        "year": "2021",
+        "rank": "12",
+        "playoffRank": "11",
+        "teamName": "Team4",
+        "record": "6-2-2",
+        "pct": 0.08,
+        "streak": "4W",
+        "pointsFor": 1938.48,
+        "pointsAgainst": 1439.44
+      },{
+        "id": "2021|Team1",
+        "year": "2021",
+        "rank": "2",
+        "playoffRank": "1",
+        "teamName": "Team1",
+        "record": "7-0-3",
+        "pct": 0.08,
+        "streak": "4W",
+        "pointsFor": 1958.28,
+        "pointsAgainst": 1739.54
+    },{
+        "id": "2021|Team2",
+        "year": "2021",
+        "rank": "1",
+        "playoffRank": "2",
+        "teamName": "Team2",
+        "record": "6-2-2",
+        "pct": 0.08,
+        "streak": "4W",
+        "pointsFor": 1938.48,
+        "pointsAgainst": 1439.44
+    }
+]
