@@ -11,11 +11,13 @@
         {{m.teams.join(", ")}}
       </div>
     </mat-card-subtitle>
-    <img
+    <div class="image_resize">
+      <img
       mat-card-image
       src="../../assets/img/Fantasy-Football-Logo.jpg"
       alt="Photo of Manager"
     />
+    </div>
     <mat-card-content>
       <div>
         <div>Active Since: {{ parseDate(m.activeDate) }}</div>

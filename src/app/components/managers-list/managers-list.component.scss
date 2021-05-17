@@ -75,7 +75,7 @@
   }
   
   .card {
-    max-width: 300px;
+    max-width: 250px;
     padding: 25px;
     display: inline-block;
     margin-right: 10px;
@@ -131,4 +131,10 @@
   .manager-button-row a {
     margin-right: 10px;
   }
+.image_resize {
+    width:260px;
+}
+.image_resize img {
+    width:60%;
+}
   
