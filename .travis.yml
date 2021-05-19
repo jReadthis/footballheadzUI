@@ -11,6 +11,7 @@ cache:
 
 install:
   - npm install
+  - pip install awscli 
 
 jobs:
   include:
@@ -20,6 +21,8 @@ jobs:
         - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
     - stage: deploy
       script:
+        access_key_id: $AWS_ACCESS_KEY_ID
+        secret_access_key: $AWS_SECRET_ACCESS_KEY
         - ng build && npm run aws-deploy
 
 stages: 
