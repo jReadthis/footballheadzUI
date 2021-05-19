@@ -12,9 +12,7 @@ cache:
 install:
   - npm install
 
-before_script:
-  - npm install -g @angular/cli
-
-  script:
-    ng build
-#  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+script:
+  - echo 'Build starts!!!'
+  - npm run build
+  #- npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
