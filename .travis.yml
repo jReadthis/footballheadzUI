@@ -12,7 +12,20 @@ cache:
 install:
   - npm install
 
-script:
-  - echo 'Build starts!!!'
-  #- npm run build
-  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+jobs:
+  include:
+    - stage: test
+      script:
+        - echo 'Start Testing'
+        - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+    - stage: deploy
+      script:
+        - ng build && npm run aws-deploy
+
+stages: 
+  - name: test
+    # require the type to be a PR
+    if: type = pull_request
+  - name: deploy
+    # require the type to be push to develop
+    if: type = push AND branch = develop
