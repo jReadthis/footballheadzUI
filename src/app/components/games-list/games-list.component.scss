@@ -11,17 +11,6 @@ mat-row {
 mat-cell {
     padding: 16px 20px 16px 0;
 }
-mat-cell:first-child {
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
-}
-mat-cell:last-child {
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
-}
-mat-form-field {
-    padding-right: 30px;
-}
 .mat-column-year {
     white-space: unset !important;
     flex: 0 0 15% !important;
@@ -42,6 +31,17 @@ mat-form-field {
     white-space: unset !important;
     flex: 0 0 12% !important;
     width: 10% !important;
+}
+mat-cell:first-child {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+mat-cell:last-child {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+mat-form-field {
+    padding-right: 30px;
 }
 .example-container {
     display: flex;
