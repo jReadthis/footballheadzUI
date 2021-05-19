@@ -2,7 +2,7 @@
     <mat-tab label="Head To Head">
         <!-- Add Season -->
         <div class="example-container mat-elevation-z8">
-            <mat-card class="form" class="example-container mat-elevation-z8">
+            <mat-card class="form">
                 <mat-card-header>
                     <mat-card-title class="label">
                         Enter Team Names
@@ -37,7 +37,7 @@
                     <div>{{ headtohead.record }}</div>
                 </mat-card-content>
                 <mat-card-content>
-                    <div class="example-container mat-elevation-z8">
+                    <div> 
 
                         <!-- Game Table-->
                         <table mat-table [dataSource]="dataSource" matSort matSortActive="year" matSortDirection="asc">
@@ -90,7 +90,7 @@
     <mat-tab label="Add Game">
         <!-- Add Season -->
         <div class="example-container mat-elevation-z8">
-            <mat-card class="form" class="example-container mat-elevation-z8">
+            <mat-card class="form">
                 <mat-card-header>
                     <mat-card-title class="label">
                         Add New Game
