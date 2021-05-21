@@ -16,3 +16,12 @@ script:
   - echo 'Build starts!!!'
   #- npm run build
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+
+deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "s3://dmvfootballheadz.com"
+  skip_cleanup: true
+  on:
+    branch: develop
