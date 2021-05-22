@@ -24,6 +24,8 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   bucket: "s3://dmvfootballheadz.com"
+  region: $AWS_DEFAULT_REGION
   skip_cleanup: true
+  local_dir: dist/footballheadzUI
   on:
     branch: develop
