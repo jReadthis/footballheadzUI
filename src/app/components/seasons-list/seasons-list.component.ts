@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AfterViewInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AuthorizationService } from 'src/app/service/authorization.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class SeasonsListComponent implements OnInit, AfterViewInit {
   years: string[] = ['2020','2019','2018','2017','2016','2015','2014','2013','2012','2011'];
   seasonGroup: any;
 
-  constructor(public seasonCrudService:SeasonCrudService ) { }
+  constructor(public seasonCrudService:SeasonCrudService, public authService: AuthorizationService ) { }
 
   ngOnInit(): void {
     this.selectedYear = this.years[0];

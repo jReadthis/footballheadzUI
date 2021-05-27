@@ -88,7 +88,7 @@
   </mat-tab>
 
   <!-- Add Season -->
-  <mat-tab label="Add Season">
+  <mat-tab label="Add Season" *ngIf="authService.isLoggedIn()">
     <div class="example-container mat-elevation-z8">
       <div class="div-form">
         <mat-card class="form">

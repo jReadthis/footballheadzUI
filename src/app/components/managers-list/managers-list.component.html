@@ -24,13 +24,13 @@
         <div>Active Status: {{ m.activeStatus }}</div>
       </div>
     </mat-card-content>
-    <mat-card-actions>
+    <mat-card-actions *ngIf="authService.isLoggedIn()">
       <button mat-button type="submit" (click)="delete(m.managerName)">DELETE</button>
     </mat-card-actions>
   </mat-card>
 </div>
 <div id="snackbar">Manager Deleted</div>
-<div class="div-form">
+<div class="div-form" *ngIf="authService.isLoggedIn()">
   <mat-card class="form">
     <mat-card-header>
       <mat-card-title class="label">

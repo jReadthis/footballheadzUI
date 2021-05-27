@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ManagerCrudService } from "../../service/manager-crud.service";
 import { Manager } from '../../../model/manager';
+import { AuthorizationService } from 'src/app/service/authorization.service';
 
 @Component({
   selector: 'app-managers-list',
@@ -23,7 +24,8 @@ export class ManagersListComponent implements OnInit {
   teams!: Array<String>;
 
   constructor(public managerCrudService: ManagerCrudService, 
-    private datePipe: DatePipe, private dateAdapter: DateAdapter<Date>) {
+    private datePipe: DatePipe, private dateAdapter: DateAdapter<Date>, 
+    public authService: AuthorizationService) {
       
      }
 
