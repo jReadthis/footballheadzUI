@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { AuthorizationService } from 'src/app/service/authorization.service';
 import { GameCrudService } from 'src/app/service/game-crud.service';
 import { Game } from '../../../model/game';
 import { HeadToHead } from '../../../model/head2head';
@@ -20,7 +21,7 @@ export class GamesListComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<Game>();
   displayedColumns: string[] = ['year', 'week', 'homeTeam', 'awayTeam', 'homeTeamPts', 'awayTeamPts'];
   
-  constructor(public service: GameCrudService) { }
+  constructor(public service: GameCrudService, public authService: AuthorizationService) { }
 
   @ViewChild('sort') sort!: MatSort;
 

@@ -19,21 +19,25 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+import { AmplifyUIAngularModule } from "@aws-amplify/ui-angular";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ManagersListComponent } from './components/managers-list/managers-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SeasonsListComponent } from './components/seasons-list/seasons-list.component';
 import { GamesListComponent } from './components/games-list/games-list.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ManagersListComponent,
     SeasonsListComponent,
-    GamesListComponent
+    GamesListComponent,
+    LoginComponent
   ],
   imports: [
+    AmplifyUIAngularModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
