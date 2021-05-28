@@ -47,7 +47,6 @@ describe('SeasonsListComponent', () => {
   }));
 
   it('should call getListSeasons and return seasons', () => {
-    debugger
     expect(component.seasons.length).toEqual(3);
   });
 

@@ -64,7 +64,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    debugger
     this.loginService.login(this.item).then( (user: any) => {
       if(user.challengeName === 'NEW_PASSWORD_REQUIRED') {
         this.router.navigate(['/game']);

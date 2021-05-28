@@ -15,7 +15,6 @@ export class AppComponent {
   ngOnInit(): void {}
 
   logout(): boolean {
-    debugger
     if(this.authService.isLoggedIn()) {
       this.authService.logout().then(data => {
         this.authService.user = null;
