@@ -110,10 +110,22 @@
 
                         <div>
                             <mat-form-field appearance="standard">
-                                <input matInput formControlName="homeTeam" placeholder="Home Team" />
+                                <!-- <input matInput formControlName="homeTeam" placeholder="Home Team" /> -->
+                                <mat-label>Home Team</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let homeTeam of teams" [value]="homeTeam">
+                                    {{homeTeam}}
+                                  </mat-option>
+                                </mat-select>
                             </mat-form-field>
                             <mat-form-field appearance="standard">
-                                <input matInput formControlName="awayTeam" placeholder="Away Team" />
+                                <!-- <input matInput formControlName="awayTeam" placeholder="Away Team" /> -->
+                                <mat-label>Away Team</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let awayTeam of teams" [value]="awayTeam">
+                                    {{awayTeam}}
+                                  </mat-option>
+                                </mat-select>
                             </mat-form-field>
                         </div>
 

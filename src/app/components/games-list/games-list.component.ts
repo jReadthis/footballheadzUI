@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AuthorizationService } from 'src/app/service/authorization.service';
 import { GameCrudService } from 'src/app/service/game-crud.service';
+import { ManagerCrudService } from 'src/app/service/manager-crud.service';
 import { Game } from '../../../model/game';
 import { HeadToHead } from '../../../model/head2head';
 
@@ -20,14 +21,17 @@ export class GamesListComponent implements OnInit, AfterViewInit {
   head2headGroup: any;
   dataSource = new MatTableDataSource<Game>();
   displayedColumns: string[] = ['year', 'week', 'homeTeam', 'awayTeam', 'homeTeamPts', 'awayTeamPts'];
+  teams!: Array<string>
   
-  constructor(public service: GameCrudService, public authService: AuthorizationService) { }
+  constructor(public service: GameCrudService, public authService: AuthorizationService, 
+    public managerCrudService: ManagerCrudService) { }
 
   @ViewChild('sort') sort!: MatSort;
 
   ngOnInit(): void {
     this.initGameGroup();
     this.initHead2HeadGroup();
+    this.fetchAllTeams();
   }
 
   ngAfterViewInit(): void {
@@ -92,9 +96,14 @@ export class GamesListComponent implements OnInit, AfterViewInit {
   delete(id: string) {
     if(window.confirm('Really?')){
       this.service.deleteGame(id).subscribe(res => {
-
       })
     }
+  }
+
+  fetchAllTeams() {
+    this.managerCrudService.getAllTeams().subscribe((res: any) =>{
+      this.teams = res;
+    })
   }
 
 }

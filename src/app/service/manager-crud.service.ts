@@ -72,6 +72,14 @@ export class ManagerCrudService {
     )
   }
 
+  getAllTeams(){
+    return this.httpClient.get<String[]>(this.endpoint + '/manager/teams')
+    .pipe(
+      retry(1),
+      catchError(this.processError)
+    )
+  }
+
   processError(err: any) {
      let message = '';
      if(err.error instanceof ErrorEvent) {

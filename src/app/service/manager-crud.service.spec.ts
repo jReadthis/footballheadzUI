@@ -78,6 +78,16 @@ describe('ManagerCrudService', () => {
     req.flush(dummyTeams);
   })
 
+  it('should return list of all teams', () => {
+    service.getAllTeams().subscribe(data => {
+      expect(data.length).toBe(3);
+      expect(data).toEqual(dummyTeams);
+    })
+    const req = httpMock.expectOne(service.endpoint + '/manager/teams');
+    expect(req.request.method).toBe('GET');
+    req.flush(dummyTeams);
+  })
+
   it('should return single manager', () => {
     let managerName = 'Orlando Marca';
     service.getSingleUser(managerName).subscribe(data => {
